@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\PrincipalController;
+use App\Http\Controllers\SobreNosController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PrincipalController::class, 'index']);
+
+Route::get('/sobre-nos', [SobreNosController::class, 'index']);
+
+Route::get('/contato', [ContatoController::class, 'index']);
+
+Route::get('/contato/{nome}/{categoria_id}', function (string $nome, int $categoria_id) {
+    echo "Estamos aqui, $nome - $categoria_id";
+})->where('categoria_id', '[0-9]+')->where('nome', '[A-Za-z]+');
