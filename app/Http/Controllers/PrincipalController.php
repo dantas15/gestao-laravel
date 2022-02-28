@@ -8,6 +8,6 @@ class PrincipalController extends Controller
 {
     function index()
     {
-        return view('site/principal');
+        return view('site/principal', ['title' => 'Página inicial']);
     }
 }

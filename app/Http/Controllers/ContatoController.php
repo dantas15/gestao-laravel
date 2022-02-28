@@ -8,6 +8,7 @@ class ContatoController extends Controller
 {
     function index()
     {
-        return view('site/contato');
+        var_dump($_POST);
+        return view('site/contato', ['title' => 'Contato']);
     }
 }
